@@ -14,6 +14,18 @@ class ImageWidgetApp extends StatefulWidget {
 class _ImageWidgetApp extends State<ImageWidgetApp> {
   @override
   Widget build(BuildContext context) {
-    return null;
+    return Scaffold(
+      appBar: AppBar(title: Text('Image Widget'),),
+      body: Container(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Image.asset('image/lion.jpeg'),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }
