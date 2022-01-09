@@ -24,6 +24,10 @@ class WidgetApp extends StatefulWidget {
 }
 
 class _WidgetExampleState extends State<WidgetApp> {
+  String sum = '';
+  TextEditingController value1 = TextEditingController();
+  TextEditingController value2 = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
