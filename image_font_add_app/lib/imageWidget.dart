@@ -21,7 +21,7 @@ class _ImageWidgetApp extends State<ImageWidgetApp> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Image.asset('image/lion.jpeg'),
+              Image.asset('image/lion.jpeg', width: 200, height: 100, fit: BoxFit.fill),
             ],
           ),
         ),
