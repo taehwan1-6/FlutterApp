@@ -4,7 +4,14 @@ void main() {
   runApp( MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return _MyApp();
+  }
+}
+
+class _MyApp extends State<StatefulWidget> {
   var switchValue = false;
 
   // This widget is the root of your application.
@@ -30,6 +37,7 @@ class MyApp extends StatelessWidget {
           child: Switch(
             value: switchValue,
             onChanged: (value) {
+              print(value);
               switchValue = value;
             },
           ),
