@@ -1,6 +1,6 @@
 // ch04 플러터 위젯 사용법
 // ch04-3 사용자와 상호작용하는 앱 만들기
-// ch04-3-1 덧셈 계산기 앱 만들
+// ch04-3-2 뺄셈, 곱셈, 나눗셈 기능 추가하
 
 import 'package:flutter/material.dart';
 
@@ -27,6 +27,9 @@ class _WidgetExampleState extends State<WidgetApp> {
   String sum = '';
   TextEditingController value1 = TextEditingController();
   TextEditingController value2 = TextEditingController();
+
+  List _buttonList = ['더하기', '빼기', '곱하기', '나누기'];
+  List<DropdownMenuItem<String>> _dropDownMenuItems = new List.empty(growable: true);
 
   @override
   Widget build(BuildContext context) {
@@ -62,8 +65,10 @@ class _WidgetExampleState extends State<WidgetApp> {
                       int result = int.parse(value1.value.text) + int.parse(value2.value.text);
                       sum = '$result';
                     });
-                  }),
-              ),
+                  }),),
+              Padding(
+                  padding: EdgeInsets.all(15),
+                  child: DropdownButton(items: null, onChanged: null),)
             ],
           ),
         ),
