@@ -31,7 +31,7 @@ class _WidgetExampleState extends State<WidgetApp> {
   List _buttonList = ['더하기', '빼기', '곱하기', '나누기'];
   List<DropdownMenuItem<String>> _dropDownMenuItems = new List.empty(growable: true);
   String? _buttonText;
-  
+
   @override
   void initState() {
     super.initState();
@@ -78,7 +78,12 @@ class _WidgetExampleState extends State<WidgetApp> {
                   }),),
               Padding(
                   padding: EdgeInsets.all(15),
-                  child: DropdownButton(items: null, onChanged: null),)
+                  child: DropdownButton(items: _dropDownMenuItems,
+                                        onChanged: (String? value) {
+                                          setState(() {
+                                            _buttonText = value;
+                                          });
+                                        }, value: _buttonText))
             ],
           ),
         ),
