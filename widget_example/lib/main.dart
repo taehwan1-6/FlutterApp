@@ -5,7 +5,7 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp( MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -14,10 +14,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: _title,
-      home: WidgetApp()
-    );
+    return MaterialApp(title: _title, home: WidgetApp());
   }
 }
 
@@ -37,11 +34,14 @@ class _WidgetExampleState extends State<WidgetApp> {
         child: Center(
           child: Column(
             children: <Widget>[
-              Text('flutter'),
-              TextField(),
-              ElevatedButton(child: const Text(''), onPressed: () {
-
-              })
+              Padding(padding: EdgeInsets.all(15), child: Text('flutter')),
+              Padding(
+                  padding: EdgeInsets.only(left: 20, right: 20),
+                  child: TextField()),
+              Padding(
+                  padding: EdgeInsets.all(15),
+                  child: ElevatedButton(child: const Text(''), onPressed: () {}),
+              ),
             ],
           ),
         ),
