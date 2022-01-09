@@ -1,3 +1,5 @@
+// 버튼을 눌러 텍스트를 바꿔 보자
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -26,14 +28,9 @@ class _MyApp extends State<StatefulWidget> {
       darkTheme: ThemeData.light(),
       home: Scaffold(
         body: Center(
-          child: Switch(
-            value: switchValue,
-            onChanged: (value) {
-              setState(() {
-                print(value);
-                switchValue = value;
-              });
-            },
+          child: ElevatedButton(
+            child: Text('$test'),
+            onPressed: () {},
           ),
         ),
       ),
