@@ -16,6 +16,7 @@ class MyApp extends StatefulWidget {
 class _MyApp extends State<StatefulWidget> {
   var switchValue = false;
   String test = "hello";
+  Color _color = Colors.blue;
 
   // This widget is the root of your application.
   @override
@@ -30,14 +31,18 @@ class _MyApp extends State<StatefulWidget> {
         body: Center(
           child: ElevatedButton(
             child: Text('$test'),
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all(_color)),
             onPressed: () {
-              if (test == 'hello') {
+              if (_color == Colors.blue) {
                 setState(() {
                   test = 'flutter';
+                  _color = Colors.amber;
                 });
               } else {
                 setState(() {
-                  test = 'hello';
+                  test = 'flutter';
+                  _color = Colors.blue;
                 });
               }
             },
