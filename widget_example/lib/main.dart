@@ -41,7 +41,10 @@ class _WidgetExampleState extends State<WidgetApp> {
               Padding(padding: EdgeInsets.all(15), child: Text('flutter')),
               Padding(
                   padding: EdgeInsets.only(left: 20, right: 20),
-                  child: TextField()),
+                  child: TextField(keyboardType: TextInputType.number, controller: value1)),
+              Padding(
+                  padding: EdgeInsets.only(left: 20, right: 20),
+                  child: TextField(keyboardType: TextInputType.number, controller: value2)),
               Padding(
                   padding: EdgeInsets.all(15),
                   child: ElevatedButton(child: const Text(''), onPressed: () {}),
