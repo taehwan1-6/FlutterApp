@@ -32,6 +32,8 @@ class _MyApp extends State<StatefulWidget> {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    print('build');
+
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
