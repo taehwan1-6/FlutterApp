@@ -1,4 +1,14 @@
 // ch03-2 생명주기 순서 출력하기
+// 1. createState()
+// 2. mount == true
+// 3. initState()
+// 4. didChangeDependencies()
+// 5. build()
+// 6. didUpdateWidget()
+// 7. setState()
+// 8. deactivate()
+// 9. dispose()
+// 10. mount == false
 
 import 'package:flutter/material.dart';
 
@@ -50,7 +60,19 @@ class _MyApp extends State<StatefulWidget> {
           ),
         ),
       ),
-
     );
   }
+
+  @override
+  void initState() {
+    super.initState();
+    print('initState');
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    print('didChangeDependencies');
+  }
+
 }
