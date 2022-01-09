@@ -36,7 +36,13 @@ class _WidgetExampleState extends State<WidgetApp> {
       body: Container(
         child: Center(
           child: Column(
+            children: <Widget>[
+              Text('flutter'),
+              TextField(),
+              ElevatedButton(child: const Text(''), onPressed: () {
 
+              })
+            ],
           ),
         ),
       ),
