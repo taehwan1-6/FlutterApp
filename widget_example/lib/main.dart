@@ -38,7 +38,10 @@ class _WidgetExampleState extends State<WidgetApp> {
         child: Center(
           child: Column(
             children: <Widget>[
-              Padding(padding: EdgeInsets.all(15), child: Text('flutter')),
+              Padding(padding: EdgeInsets.all(15),
+                  child: Text(
+                  '결과 : $sum',
+                  style: TextStyle(fontSize: 20),)),
               Padding(
                   padding: EdgeInsets.only(left: 20, right: 20),
                   child: TextField(keyboardType: TextInputType.number, controller: value1)),
@@ -54,7 +57,12 @@ class _WidgetExampleState extends State<WidgetApp> {
                     ],
                   ),
                   style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.amber)),
-                  onPressed: () {}),
+                  onPressed: () {
+                    setState(() {
+                      int result = int.parse(value1.value.text) + int.parse(value2.value.text);
+                      sum = '$result';
+                    });
+                  }),
               ),
             ],
           ),
