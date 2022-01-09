@@ -1,6 +1,6 @@
 // ch04. 플러터 위젯 사용법
 // ch04-1. 스캐폴드를 이용한 머티리얼 디자인
-// ch04-1-2. 제목 줄 추가하기
+// ch04_1_3. 위젯을 여러 개 만들기
 
 import 'package:flutter/material.dart';
 
@@ -40,6 +40,13 @@ class _MaterialFlutterApp extends State<MaterialFlutterApp> {
         onPressed: () {
 
         },
+      ),
+      body: Container(
+        child: Column(
+          children: <Widget>[
+
+          ],
+        ),
       ),
     );
   }
