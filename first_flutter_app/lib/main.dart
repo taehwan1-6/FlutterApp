@@ -37,8 +37,10 @@ class _MyApp extends State<StatefulWidget> {
           child: Switch(
             value: switchValue,
             onChanged: (value) {
-              print(value);
-              switchValue = value;
+              setState(() {
+                print(value);
+                switchValue = value;
+              });
             },
           ),
         ),
