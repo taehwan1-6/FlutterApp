@@ -1,4 +1,4 @@
-// 버튼을 눌러 텍스트를 바꿔 보자
+// 버튼을 눌러 텍스트를 바꿔 보
 
 import 'package:flutter/material.dart';
 
@@ -30,7 +30,17 @@ class _MyApp extends State<StatefulWidget> {
         body: Center(
           child: ElevatedButton(
             child: Text('$test'),
-            onPressed: () {},
+            onPressed: () {
+              if (test == 'hello') {
+                setState(() {
+                  test = 'flutter';
+                });
+              } else {
+                setState(() {
+                  test = 'hello';
+                });
+              }
+            },
           ),
         ),
       ),
