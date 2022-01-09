@@ -66,13 +66,26 @@ class _WidgetExampleState extends State<WidgetApp> {
                   child: ElevatedButton(child: Row(
                     children: <Widget>[
                       Icon(Icons.add),
-                      Text('더하기')
+                      Text(_buttonText!)
                     ],
                   ),
                   style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.amber)),
                   onPressed: () {
                     setState(() {
-                      int result = int.parse(value1.value.text) + int.parse(value2.value.text);
+                      var value1Int = double.parse(value1.value.text);
+                      var value2Int = double.parse(value2.value.text);
+                      var result;
+
+                      if (_buttonText == '더하기') {
+                        result = value1Int + value2Int;
+                      } else if (_buttonText == '빼기') {
+                        result = value1Int - value2Int;
+                      } else if (_buttonText == '곱하기') {
+                        result = value1Int * value2Int;
+                      } else {
+                        result = value1Int / value2Int;
+                      }
+
                       sum = '$result';
                     });
                   }),),
