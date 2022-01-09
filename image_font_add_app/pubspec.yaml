@@ -61,6 +61,12 @@ flutter:
   assets:
     - image/lion.jpeg
 
+  fonts:
+    - family: Pacifico
+      fonts:
+        - asset: font/Pacifico-Regular.ttf
+          weight: 400
+
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 
