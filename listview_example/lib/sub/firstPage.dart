@@ -24,6 +24,13 @@ class FirstApp extends StatelessWidget {
                   ],
                 ),
               ),
+              onTap: () {
+                AlertDialog dialog = AlertDialog(
+                  content: Text('이 동물은 ${list![position].kind}입니다',
+                                style: TextStyle(fontSize: 30.0),),
+                );
+                showDialog(context: context, builder: (BuildContext context) => dialog);
+              },
             );
           },
           itemCount: list!.length
