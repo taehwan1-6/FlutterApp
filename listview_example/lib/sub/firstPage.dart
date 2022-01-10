@@ -11,16 +11,18 @@ class FirstApp extends StatelessWidget {
       body: Container(
         child: Center(
           child: ListView.builder(itemBuilder: (context, position) {
-            return Card( // 이 부분에 위젯을 이용해 데이터를 표시
-              child: Row(
-                children: <Widget>[
-                  Image.asset(
-                    list![position].imagePath!,
-                    height: 100,
-                    width: 100,
-                    fit: BoxFit.contain,),
-                  Text(list![position].animalName!),
-                ],
+            return GestureDetector(
+              child: Card(
+                child: Row(
+                  children: <Widget>[
+                    Image.asset(
+                      list![position].imagePath!,
+                      height: 100,
+                      width: 100,
+                      fit: BoxFit.contain,),
+                    Text(list![position].animalName!),
+                  ],
+                ),
               ),
             );
           },
