@@ -36,7 +36,8 @@ class _SecondApp extends State<SecondApp> {
                   Text('파충류'),
                   Radio(value: 2, groupValue: _radioValue, onChanged: _radioChange),
                   Text('포유류'),
-                ],),
+                ],
+                mainAxisAlignment: MainAxisAlignment.spaceAround,),
               Row(
                 children: <Widget>[
                   Text('날 수 있나요?'),
@@ -45,7 +46,8 @@ class _SecondApp extends State<SecondApp> {
                       flyExist = check;
                     });
                   })
-                ],),
+                ],
+                mainAxisAlignment: MainAxisAlignment.spaceAround),
               Row(
                 children: <Widget>[
                   GestureDetector(
@@ -68,12 +70,11 @@ class _SecondApp extends State<SecondApp> {
                     onTap: () {
                       _imagePath = 'repo/images/cat.png';
                     },),
-                  GestureDetector(
-                    child: Image.asset('repo/images/dog.png', width: 80),
-                    onTap: () {
-                      _imagePath = 'repo/images/dog.png';
-                    },),
                 ],
+                 mainAxisAlignment: MainAxisAlignment.spaceAround),
+              ElevatedButton(
+                child: Text('동물 추가하기'),
+                onPressed: () {},
               ),
             ],
           ),
