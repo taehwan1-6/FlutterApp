@@ -57,6 +57,16 @@ flutter:
   # the material Icons class.
   uses-material-design: true
 
+  assets:
+    - repo/images/bee.png
+    - repo/images/cat.png
+    - repo/images/cow.png
+    - repo/images/dog.png
+    - repo/images/fox.png
+    - repo/images/monkey.png
+    - repo/images/pig.png
+    - repo/images/wolf.png
+
   # To add assets to your application, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg
