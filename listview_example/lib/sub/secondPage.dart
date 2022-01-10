@@ -13,6 +13,7 @@ class SecondApp extends StatefulWidget{
 class _SecondApp extends State<SecondApp> {
   final nameController = TextEditingController();
   int? _radioValue = 0;
+  bool? flyExist = false;
 
   @override
   Widget build(BuildContext context) {
@@ -35,6 +36,16 @@ class _SecondApp extends State<SecondApp> {
                   Radio(value: 2, groupValue: _radioValue, onChanged: _radioChange),
                   Text('포유류'),
                 ],),
+              Row(
+                children: <Widget>[
+                  Text('날 수 있나요?'),
+                  Checkbox(value: flyExist, onChanged: (bool? check) {
+                    setState(() {
+                      flyExist = check;
+                    });
+                  })
+                ],
+              ),
             ],
           ),
         ),
