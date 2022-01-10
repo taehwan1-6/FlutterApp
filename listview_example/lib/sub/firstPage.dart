@@ -10,7 +10,11 @@ class FirstApp extends StatelessWidget {
     return Scaffold(
       body: Container(
         child: Center(
-          child: Text('첫 번째 페이지'),
+          child: ListView.builder(itemBuilder: (context, position) {
+            return Card( // 이 부분에 위젯을 이용해 데이터를 표시
+
+            );
+          }),
         ),
       ),
     );
