@@ -14,6 +14,7 @@ class _SecondApp extends State<SecondApp> {
   final nameController = TextEditingController();
   int? _radioValue = 0;
   bool? flyExist = false;
+  String? _imagePath;
 
   @override
   Widget build(BuildContext context) {
@@ -44,6 +45,34 @@ class _SecondApp extends State<SecondApp> {
                       flyExist = check;
                     });
                   })
+                ],),
+              Row(
+                children: <Widget>[
+                  GestureDetector(
+                    child: Image.asset('repo/images/cow.png', width: 80),
+                    onTap: () {
+                      _imagePath = 'repo/images/cow.png';
+                    },),
+                  GestureDetector(
+                    child: Image.asset('repo/images/pig.png', width: 80),
+                    onTap: () {
+                      _imagePath = 'repo/images/pig.png';
+                    },),
+                  GestureDetector(
+                    child: Image.asset('repo/images/bee.png', width: 80),
+                    onTap: () {
+                      _imagePath = 'repo/images/bee.png';
+                    },),
+                  GestureDetector(
+                    child: Image.asset('repo/images/cat.png', width: 80),
+                    onTap: () {
+                      _imagePath = 'repo/images/cat.png';
+                    },),
+                  GestureDetector(
+                    child: Image.asset('repo/images/dog.png', width: 80),
+                    onTap: () {
+                      _imagePath = 'repo/images/dog.png';
+                    },),
                 ],
               ),
             ],
