@@ -11,6 +11,8 @@ class SecondApp extends StatefulWidget{
 }
 
 class _SecondApp extends State<SecondApp> {
+  final nameController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,7 +21,10 @@ class _SecondApp extends State<SecondApp> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[ // 위젯 담기
-
+              TextField(
+                controller: nameController,
+                keyboardType: TextInputType.text,
+                maxLines: 1,),
             ],
           ),
         ),
