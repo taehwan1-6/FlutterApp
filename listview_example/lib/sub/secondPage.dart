@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import '../animalItem.dart';
 
-class SecondApp extends StatefulWidget{
+class SecondApp extends StatefulWidget {
 
   @override
   State<StatefulWidget> createState() => _SecondApp();
   List<Animal>? list;
+
   SecondApp({Key? key, @required this.list}) : super(key: key);
 
 }
@@ -24,31 +25,34 @@ class _SecondApp extends State<SecondApp> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[ // 위젯 담기
-              TextField(
-                controller: nameController,
-                keyboardType: TextInputType.text,
-                maxLines: 1,),
-              Row(
-                children: <Widget>[
-                  Radio(value: 0, groupValue: _radioValue, onChanged: _radioChange),
-                  Text('양서류'),
-                  Radio(value: 1, groupValue: _radioValue, onChanged: _radioChange),
-                  Text('파충류'),
-                  Radio(value: 2, groupValue: _radioValue, onChanged: _radioChange),
-                  Text('포유류'),
-                ],
-                mainAxisAlignment: MainAxisAlignment.spaceAround,),
-              Row(
-                children: <Widget>[
-                  Text('날 수 있나요?'),
-                  Checkbox(value: flyExist, onChanged: (bool? check) {
-                    setState(() {
-                      flyExist = check;
-                    });
-                  })
-                ],
-                mainAxisAlignment: MainAxisAlignment.spaceAround),
-              Row(
+            TextField(
+            controller: nameController,
+            keyboardType: TextInputType.text,
+            maxLines: 1,),
+            Row(
+            children: <Widget>[
+              Radio(value: 0, groupValue: _radioValue, onChanged: _radioChange),
+              Text('양서류'),
+              Radio(value: 1, groupValue: _radioValue, onChanged: _radioChange),
+              Text('파충류'),
+              Radio(value: 2, groupValue: _radioValue, onChanged: _radioChange),
+              Text('포유류'),
+            ],
+            mainAxisAlignment: MainAxisAlignment.spaceAround,),
+            Row(
+              children: <Widget>[
+                Text('날 수 있나요?'),
+                Checkbox(value: flyExist, onChanged: (bool? check) {
+                  setState(() {
+                    flyExist = check;
+                  });
+                })
+              ],
+              mainAxisAlignment: MainAxisAlignment.spaceAround),
+            Container(
+              height: 100,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
                 children: <Widget>[
                   GestureDetector(
                     child: Image.asset('repo/images/cow.png', width: 80),
@@ -70,14 +74,25 @@ class _SecondApp extends State<SecondApp> {
                     onTap: () {
                       _imagePath = 'repo/images/cat.png';
                     },),
-                ],
-                 mainAxisAlignment: MainAxisAlignment.spaceAround),
+                  GestureDetector(
+                    child: Image.asset('repo/images/fox.png', width: 80),
+                    onTap: () {
+                      _imagePath = 'repo/images/fox.png';
+                    },),
+                  GestureDetector(
+                    child: Image.asset('repo/images/monkey.png', width: 80),
+                    onTap: () {
+                      _imagePath = 'repo/images/monkey.png';
+                    },),
+                ],),),
               ElevatedButton(
                 child: Text('동물 추가하기'),
                 onPressed: () {},
               ),
             ],
+
           ),
+
         ),
       ),
     );
