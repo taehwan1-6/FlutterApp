@@ -58,6 +58,12 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
     controller = TabController(length: 2, vsync: this);
   }
 
+  @override
+  void dispose() {
+    controller!.dispose();
+    super.dispose();
+  }
+
   void _incrementCounter() {
     setState(() {
       // This call to setState tells the Flutter framework that something has
