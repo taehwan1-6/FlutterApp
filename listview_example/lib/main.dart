@@ -62,10 +62,10 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('TabBar Example'),
+        title: Text('ListView Example'),
       ),
       body: TabBarView(
-        children: <Widget>[FirstApp(), SecondApp()],
+        children: <Widget>[FirstApp(list: animalList), SecondApp()],
         controller: controller,
       ),
       bottomNavigationBar: TabBar(tabs: <Tab>[
