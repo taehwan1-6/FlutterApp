@@ -76,7 +76,51 @@ class _CupertinoSecondPage extends State<CupertinoSecondPage> {
                   })
                 ],
                 mainAxisAlignment: MainAxisAlignment.center,
-              )
+              ),
+              SizedBox(
+                height: 100,
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: <Widget>[
+                    GestureDetector(
+                      child: Image.asset('repo/images/cow.png', width: 80,),
+                      onTap: () {
+                        _imagePath = 'repo/images/cow.png';
+                      },
+                    ),
+                    GestureDetector(
+                      child: Image.asset('repo/images/pig.png', width: 80,),
+                      onTap: () {
+                        _imagePath = 'repo/images/pig.png';
+                      },
+                    ),
+                    GestureDetector(
+                      child: Image.asset('repo/images/bee.png', width: 80,),
+                      onTap: () {
+                        _imagePath = 'repo/images/bee.png';
+                      },
+                    ),
+                    GestureDetector(
+                      child: Image.asset('repo/images/cat.png', width: 80,),
+                      onTap: () {
+                        _imagePath = 'repo/images/cat.png';
+                      },
+                    ),
+                    GestureDetector(
+                      child: Image.asset('repo/images/fox.png', width: 80,),
+                      onTap: () {
+                        _imagePath = 'repo/images/fox.png';
+                      },
+                    ),
+                    GestureDetector(
+                      child: Image.asset('repo/images/monkey.png', width: 80,),
+                      onTap: () {
+                        _imagePath = 'repo/images/monkey.png';
+                      },
+                    ),
+                  ],
+                ),
+              ),
             ],
           ),
         ),
