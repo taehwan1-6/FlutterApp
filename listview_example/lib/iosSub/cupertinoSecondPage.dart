@@ -19,7 +19,7 @@ class _CupertinoSecondPage extends State<CupertinoSecondPage> {
   int _kindChoice = 0;
   bool _flyExist = false;
   String? _imagePath;
-  Map<int, Widget> segmentWidget = {
+  Map<int, Widget> segmentWidgets = {
     0: SizedBox(
       child: Text('양서류', textAlign: TextAlign.center,),
       width: 80,
@@ -57,6 +57,15 @@ class _CupertinoSecondPage extends State<CupertinoSecondPage> {
                         keyboardType: TextInputType.text,
                         maxLines: 1,
                       ),)
+              CupertinoSegmentedControl(
+                padding: EdgeInsets.only(bottom: 20, top: 20),
+                groupValue: _kindChoice,
+                children: segmentWidgets,
+                onValueChanged: (int value) {
+                  setState(() {
+                    _kindChoice = value;
+                  });
+                }),
             ],
           ),
         ),
