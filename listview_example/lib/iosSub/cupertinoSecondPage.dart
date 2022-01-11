@@ -1,6 +1,7 @@
 // ch06-2 쿠퍼티오 위젯으로 동물 추가 화면 만들기
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import '../animalItem.dart';
 
 class CupertinoSecondPage extends StatefulWidget {
@@ -18,6 +19,20 @@ class _CupertinoSecondPage extends State<CupertinoSecondPage> {
   int _kindChoice = 0;
   bool _flyExist = false;
   String? _imagePath;
+  Map<int, Widget> segmentWidget = {
+    0: SizedBox(
+      child: Text('양서류', textAlign: TextAlign.center,),
+      width: 80,
+    ),
+    1: SizedBox(
+      child: Text('포유류', textAlign: TextAlign.center,),
+      width: 80,
+    ),
+    2: SizedBox(
+      child: Text('파충류', textAlign: TextAlign.center,),
+      width: 80,
+    ),
+  };
 
   @override
   void initState() {
