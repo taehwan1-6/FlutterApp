@@ -121,10 +121,32 @@ class _CupertinoSecondPage extends State<CupertinoSecondPage> {
                   ],
                 ),
               ),
+              CupertinoButton(
+                  child: Text('동물 추가하기'),
+                  onPressed: () {
+                widget.animalList?.add(Animal(
+                    animalName: _textController?.value.text,
+                    kind: getKind(_kindChoice),
+                    imagePath: _imagePath,
+                    flyExist: _flyExist));
+              }),
             ],
+            mainAxisAlignment: MainAxisAlignment.center,
           ),
         ),
       ),
     );
   }
+
+  getKind(int radioValue) {
+    switch (radioValue) {
+      case 0:
+        return "양서류";
+      case 1:
+        return "파충류";
+      case 2:
+        return "포유류";
+    }
+  }
+
 }
