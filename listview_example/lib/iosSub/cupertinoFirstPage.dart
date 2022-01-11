@@ -9,7 +9,7 @@ class CupertinoFirstPage extends StatelessWidget {
       : super(key: key);
 
   @override
-  Widget bulid(BuildContext context) {
+  Widget build(BuildContext context) {
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(
         middle: Text('동물 리스트'),
