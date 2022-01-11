@@ -14,3 +14,31 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+class HttpApp extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() => _HttpApp();
+}
+
+class _HttpApp extends State<HttpApp> {
+  String result = '';
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Http Example'),
+      ),
+      body: Container(
+        child: Center(
+          child: Text('$result'),
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: Icon(Icons.file_download),
+      ),
+    );
+  }
+
+}
