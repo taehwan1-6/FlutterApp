@@ -23,6 +23,13 @@ class HttpApp extends StatefulWidget {
 
 class _HttpApp extends State<HttpApp> {
   String result = '';
+  List? data;
+
+  @override
+  void initState() {
+    super.initState();
+    data = new List.empty(growable: true);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -49,8 +56,13 @@ class _HttpApp extends State<HttpApp> {
     var response = await http.get(Uri.parse(url),
         headers: {"Authorization": "KakaoAK dd598ac03bee3512846c8d074ebabc16"});
 
-    print(response.body);
-    return "Successfull";
+    setState(() {
+      var dataConvertedToJSON = json.decode(response.body);
+      List result = dataConvertedToJSON['documents'];
+      data!.addAll(result);
+    });
+
+    return response.body;
   }
 
 }
