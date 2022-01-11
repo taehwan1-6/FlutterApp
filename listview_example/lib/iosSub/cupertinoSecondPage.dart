@@ -56,7 +56,7 @@ class _CupertinoSecondPage extends State<CupertinoSecondPage> {
                         controller: _textController,
                         keyboardType: TextInputType.text,
                         maxLines: 1,
-                      ),)
+                      ),),
               CupertinoSegmentedControl(
                 padding: EdgeInsets.only(bottom: 20, top: 20),
                 groupValue: _kindChoice,
@@ -66,6 +66,17 @@ class _CupertinoSecondPage extends State<CupertinoSecondPage> {
                     _kindChoice = value;
                   });
                 }),
+              Row(
+                children: <Widget>[
+                  Text('날개가 존재합니까?'),
+                  CupertinoSwitch(value: _flyExist, onChanged: (value) {
+                    setState(() {
+                      _flyExist = value;
+                    });
+                  })
+                ],
+                mainAxisAlignment: MainAxisAlignment.center,
+              )
             ],
           ),
         ),
