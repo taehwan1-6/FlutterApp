@@ -39,7 +39,33 @@ class _HttpApp extends State<HttpApp> {
       ),
       body: Container(
         child: Center(
-          child: Text('$result'),
+          child: data!.length == 0
+              ? Text('데이터가 없습니다.',
+                      style: TextStyle(fontSize: 20),
+                      textAlign: TextAlign.center,)
+              : ListView.builder(
+                  itemBuilder: (context, index) {
+                    return Card(
+                      child: Container(
+                        child: Column(
+                          children: <Widget>[
+                            Text(data![index]['title'].toString()),
+                            Text(data![index]['authors'].toString()),
+                            Text(data![index]['sale_price'].toString()),
+                            Text(data![index]['status'].toString()),
+                            Image.network(
+                              data![index]['thumbnail'],
+                              height: 100,
+                              width: 100,
+                              fit: BoxFit.contain,
+                            )
+                          ],
+                        ),
+                      ),
+                    );
+                  },
+                  itemCount: data!.length,
+        ),
         ),
       ),
       floatingActionButton: FloatingActionButton(
