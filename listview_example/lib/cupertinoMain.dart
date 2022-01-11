@@ -3,6 +3,7 @@
 import 'package:flutter/cupertino.dart';
 import 'animalItem.dart';
 import 'iosSub/cupertinoFirstPage.dart';
+import 'iosSub/cupertinoSecondPage.dart';
 
 class CupertinoMain extends StatefulWidget {
   @override
@@ -45,10 +46,8 @@ class _CupertinoMain extends State<CupertinoMain> {
               animalList: animalList,
             );
           } else {
-            return Container(
-              child: Center(
-                child: Text('cupertino tab2'),
-              ),
+            return CupertinoSecondPage(
+              animalList: animalList,
             );
           }
         }),
