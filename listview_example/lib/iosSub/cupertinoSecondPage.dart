@@ -14,6 +14,18 @@ class CupertinoSecondPage extends StatefulWidget {
 }
 
 class _CupertinoSecondPage extends State<CupertinoSecondPage> {
+  TextEditingController? _textController;
+  int _kindChoice = 0;
+  bool _flyExist = false;
+  String? _imagePath;
+
+  @override
+  void initState() {
+    super.initState();
+    _textController = TextEditingController();
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
