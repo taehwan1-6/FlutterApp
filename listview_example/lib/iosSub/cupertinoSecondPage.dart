@@ -124,12 +124,37 @@ class _CupertinoSecondPage extends State<CupertinoSecondPage> {
               CupertinoButton(
                   child: Text('동물 추가하기'),
                   onPressed: () {
-                widget.animalList?.add(Animal(
+                    var animal = Animal(
                     animalName: _textController?.value.text,
                     kind: getKind(_kindChoice),
                     imagePath: _imagePath,
-                    flyExist: _flyExist));
-              }),
+                    flyExist: _flyExist);
+
+                    showCupertinoDialog(
+                        context: context,
+                        builder: (context){
+                          return CupertinoAlertDialog(
+                              title: Text('동물 추가하기'),
+                              content: Text(
+                                '이 동물은 ${animal.animalName} 입니다'
+                                '또 동물의 종류는 ${animal.kind} 입니다.\n이 동물을 추가하시겠습니까?',
+                                style: TextStyle(fontSize: 30.0),),
+                              actions: [
+                                CupertinoButton(
+                                  onPressed: () {
+                                    widget.animalList?.add(animal);
+                                    Navigator.of(context).pop();
+                                  },
+                                  child: Text('예')),
+                                CupertinoButton(
+                                  onPressed: () {
+                                    Navigator.of(context).pop();
+                                  },
+                                  child: Text('아니요')),
+                              ],);
+                    });
+
+                  }),
             ],
             mainAxisAlignment: MainAxisAlignment.center,
           ),
@@ -143,9 +168,9 @@ class _CupertinoSecondPage extends State<CupertinoSecondPage> {
       case 0:
         return "양서류";
       case 1:
-        return "파충류";
+        return "포유";
       case 2:
-        return "포유류";
+        return "파충류";
     }
   }
 

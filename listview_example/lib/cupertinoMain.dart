@@ -1,6 +1,7 @@
 // ch06. ios 스타일로 플러터 앱 만들기
 
 import 'package:flutter/cupertino.dart';
+import 'package:listview_example/iosSub/cupertinoSecondPage.dart';
 import 'animalItem.dart';
 import 'iosSub/cupertinoFirstPage.dart';
 
@@ -45,10 +46,8 @@ class _CupertinoMain extends State<CupertinoMain> {
               animalList: animalList,
             );
           } else {
-            return Container(
-              child: Center(
-                child: Text('cupertino tab2'),
-              ),
+            return CupertinoSecondPage(
+              animalList: animalList,
             );
           }
         }),
