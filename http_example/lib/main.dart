@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:http/http.dart';
+import 'package:http/http.dart' as http;
 
 void main() {
   runApp(MyApp());
@@ -35,7 +35,13 @@ class _HttpApp extends State<HttpApp> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () async {
+          var url = 'http://www.google.com';
+          var response = await http.get(Uri.parse(url));
+          setState(() {
+            result = response.body;
+          });
+        },
         child: Icon(Icons.file_download),
       ),
     );
