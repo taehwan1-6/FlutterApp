@@ -24,8 +24,24 @@ class _CupertinoMain extends State<CupertinoMain> {
   @override
   Widget build(BuildContext context) {
     return CupertinoApp(
-      home: CupertinoTabScaffold(tabBar: null, tabBuilder: null,),
-    )
+      home: CupertinoTabScaffold(
+        tabBar: tabBar!,
+        tabBuilder: (context, value) {
+          if (value == 0) {
+            return Container(
+              child: Center(
+                child: Text('cupertino tab1'),
+              ),
+            );
+          } else {
+            return Container(
+              child: Center(
+                child: Text('cupertino tab2'),
+              ),
+            );
+          }
+        }),
+    );
   }
 }
 
