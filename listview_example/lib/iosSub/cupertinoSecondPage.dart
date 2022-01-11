@@ -47,7 +47,20 @@ class _CupertinoSecondPage extends State<CupertinoSecondPage> {
       navigationBar: CupertinoNavigationBar(
         middle: Text('동물 추가'),
       ),
-      child: null,
+      child: Container(
+        child: Center(
+          child: Column(
+            children: <Widget>[
+              Padding(padding: EdgeInsets.all(10),
+                      child: CupertinoTextField(
+                        controller: _textController,
+                        keyboardType: TextInputType.text,
+                        maxLines: 1,
+                      ),)
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
