@@ -96,7 +96,7 @@ class _HttpApp extends State<HttpApp> {
   }
 
   Future<String> getJSONData() async {
-    var url = 'https://dapi.kakao.com/v3/search/book?target=title&query=doit';
+    var url = 'https://dapi.kakao.com/v3/search/book?target=title&query=${_editingController!.value.text}';
     var response = await http.get(Uri.parse(url),
         headers: {"Authorization": "KakaoAK dd598ac03bee3512846c8d074ebabc16"});
 
