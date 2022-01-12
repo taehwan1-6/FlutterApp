@@ -24,18 +24,25 @@ class HttpApp extends StatefulWidget {
 class _HttpApp extends State<HttpApp> {
   String result = '';
   List? data;
+  TextEditingController? _editingController;
 
   @override
   void initState() {
     super.initState();
     data = new List.empty(growable: true);
+    _editingController = new TextEditingController();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Http Example'),
+        title: TextField(
+          controller: _editingController,
+          style: TextStyle(color: Colors.white),
+          keyboardType: TextInputType.text,
+          decoration: InputDecoration(hintText: '검색어를 입력하세요'),
+        ),
       ),
       body: Container(
         child: Center(
