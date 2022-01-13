@@ -77,6 +77,23 @@ class _LargeFileMain extends State<LargeFileMain> {
     );
   }
 
+
+  Future<Widget> downloadWidget(String filePath) async {
+    File file = File(filePath);
+    bool exist = await file.exists();
+    new FileImage(file).evict(); // 캐시 초기화하기
+
+    if (exist) {
+      return Center(
+        child: Column(
+          children: <Widget>[Image.file(File(filePath))],
+        ),
+      );
+    } else {
+      return Text('No Data');
+    }
+  }
+
   Future<void> downloadFile() async {
     Dio dio = Dio();
 
