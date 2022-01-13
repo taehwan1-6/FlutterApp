@@ -23,4 +23,30 @@ class _LargeFileMain extends State<LargeFileMain> {
     return null;
   }
 
+  Future<void> downloadFile() async {
+    Dio dio = Dio();
+
+    try {
+      var dir = await getApplicationDocumentsDirectory();
+      await dio.download(imgUrl, '${dir.path}/myimage.jpg',
+        onReceiveProgress: (rec, total) {
+          print('Rec: $rec, Total: $total');
+          file = '${dir.path}/myimage.jpg';
+          setState(() {
+            downloading = true;
+            progressString = ((rec / total) * 100).toStringAsFixed(0) + '%';
+          });
+        });
+    } catch (e) {
+      print(e);
+    }
+
+    setState(() {
+      downloading = false;
+      progressString = 'Completed';
+    });
+    print('Download completed');
+
+  }
+
 }
