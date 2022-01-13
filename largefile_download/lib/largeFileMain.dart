@@ -20,7 +20,38 @@ class _LargeFileMain extends State<LargeFileMain> {
 
   @override
   Widget build(BuildContext context) {
-    return null;
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Large File Example'),
+      ),
+      body: Center(
+        child: downloading ? Container(
+          height: 120.0,
+          width: 200.0,
+          child: Card(
+            color: Colors.black,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                CircularProgressIndicator(),
+                SizedBox(height: 20.0,),
+                Text(
+                  'Downloading File: $progressString',
+                  style: TextStyle(color: Colors.white),
+                ),
+              ],
+            ),
+          ),
+        )
+            :
+            floatingActionButton: FloatingActionButton(
+              onPressed: () {
+                downloadFile();
+              },
+              child: Icon(Icons.file_download),
+            )
+      ),
+    );
   }
 
   Future<void> downloadFile() async {
