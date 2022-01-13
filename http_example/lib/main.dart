@@ -98,6 +98,7 @@ class _HttpApp extends State<HttpApp> {
                     );
                   },
                   itemCount: data!.length,
+                  controller: _scrollController,
         ),
         ),
       ),
