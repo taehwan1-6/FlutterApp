@@ -103,7 +103,9 @@ class _HttpApp extends State<HttpApp> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () async {
+        onPressed: () {
+          page = 1;
+          data!.clear();
           getJSONData();
         },
         child: Icon(Icons.file_download),
