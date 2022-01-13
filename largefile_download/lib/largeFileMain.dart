@@ -25,32 +25,55 @@ class _LargeFileMain extends State<LargeFileMain> {
         title: Text('Large File Example'),
       ),
       body: Center(
-        child: downloading ? Container(
-          height: 120.0,
-          width: 200.0,
-          child: Card(
-            color: Colors.black,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                CircularProgressIndicator(),
-                SizedBox(height: 20.0,),
-                Text(
-                  'Downloading File: $progressString',
-                  style: TextStyle(color: Colors.white),
+        child: downloading
+          ? Container(
+              height: 120.0,
+              width: 200.0,
+              child: Card(
+                color: Colors.black,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    CircularProgressIndicator(),
+                    SizedBox(height: 20.0,),
+                    Text(
+                      'Downloading File: $progressString',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ],
                 ),
-              ],
-            ),
-          ),
-        )
-            :
-            floatingActionButton: FloatingActionButton(
-              onPressed: () {
-                downloadFile();
-              },
-              child: Icon(Icons.file_download),
+              ),
             )
-      ),
+        : FutureBuilder(
+            builder: (context, snapshot) {
+              switch (snapshot.connectionState) {
+                case ConnectionState.none:
+                  print('none');
+                  return Text('데이터 없음');
+                case ConnectionState.waiting:
+                  print('wating');
+                  return CircularProgressIndicator();
+                case ConnectionState.active:
+                  print('active');
+                  return CircularProgressIndicator();
+                case ConnectionState.done:
+                  print('done');
+                  if (snapshot.hasData) {
+                    return snapshot.data as Widget;
+                  }
+              }
+              print('end process');
+              return Text('데이터 없음');
+            },
+            future: downloadWidget(file),
+        )),
+
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            downloadFile();
+          },
+          child: Icon(Icons.file_download),
+        ),
     );
   }
 
