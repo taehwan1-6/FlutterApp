@@ -109,7 +109,7 @@ class _LargeFileMain extends State<LargeFileMain> {
 
     try {
       var dir = await getApplicationDocumentsDirectory();
-      await dio.download(imgUrl, '${dir.path}/myimage.jpg',
+      await dio.download(_editingController!.value.text, '${dir.path}/myimage.jpg',
         onReceiveProgress: (rec, total) {
           print('Rec: $rec, Total: $total');
           file = '${dir.path}/myimage.jpg';
