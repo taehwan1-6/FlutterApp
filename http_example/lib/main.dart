@@ -25,12 +25,27 @@ class _HttpApp extends State<HttpApp> {
   String result = '';
   List? data;
   TextEditingController? _editingController;
+  ScrollController? _scrollController;
+  int page = 1;
+
 
   @override
   void initState() {
     super.initState();
     data = new List.empty(growable: true);
     _editingController = new TextEditingController();
+    _scrollController = new ScrollController();
+
+    _scrollController!.addListener(() {
+      if (_scrollController!.offset >=
+          _scrollController!.position.maxScrollExtent &&
+          !_scrollController!.position.outOfRange) {
+        print('bottom');
+        page++;
+        getJSONData();
+      }
+    });
+
   }
 
   @override
