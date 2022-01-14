@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 import 'addTodo.dart';
+import 'todo.dart';
 
 void main() {
   runApp(const MyApp());
@@ -67,4 +68,10 @@ class _DatabaseApp extends State<DatabaseApp> {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
+
+  void _insertTodo(Todo todo) async {
+    final Database database = await widget.db;
+    await database.insert('todos', todo.toMap(), conflictAlgorithm: ConflictAlgorithm.replace);
+  }
+
 }
