@@ -45,4 +45,12 @@ class _SubDetail extends State<SubDetail> {
       ),
     );
   }
+
+  void _addNavigation(BuildContext context) async {
+    final result = await Navigator.of(context).pushNamed('/second');
+    setState(() {
+      todoList.add(result as String);
+    });
+  }
+
 }
