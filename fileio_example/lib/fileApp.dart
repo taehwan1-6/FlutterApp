@@ -115,4 +115,11 @@ class _FileApp extends State<FileApp> {
     }
   }
 
+  void writeFruit(String fruit) async {
+    var dir = await getApplicationDocumentsDirectory();
+    var file = await File(dir.path + '/fruit.txt').readAsString();
+    file = file + '\n' + fruit;
+    File(dir.path + '/fruit.txt').writeAsStringSync(file);
+  }
+
 }
