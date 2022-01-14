@@ -43,6 +43,9 @@ class MyApp extends StatelessWidget {
 }
 
 class DatabaseApp extends StatefulWidget {
+  final Future<Database> db;
+  DatabaseApp(this.db);
+
   @override
   State<StatefulWidget> createState() => _DatabaseApp();
 }
