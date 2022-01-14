@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'dart:io';
+import 'package:path_provider/path_provider.dart';
 
 class FileApp extends StatefulWidget {
   @override
@@ -6,6 +8,15 @@ class FileApp extends StatefulWidget {
 }
 
 class _FileApp extends State<FileApp> {
+  int _count = 0;
+
+
+  @override
+  void initState() {
+    super.initState();
+    readCountFile();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,4 +26,23 @@ class _FileApp extends State<FileApp> {
       body: Container(),
     );
   }
+
+  void writeCountFile(int count) async {
+    var dir = await getApplicationDocumentsDirectory();
+    File(dir.path + '/count.txt').writeAsStringSync(count.toString());
+  }
+
+  void readCountFile() async {
+    try {
+      var dir = await getApplicationDocumentsDirectory();
+      var file = await File(dir.path + '/count.txt').readAsString();
+      print(file);
+      setState(() {
+        _count = int.parse(file);
+      });
+    } catch (e) {
+      print(e.toString());
+    }
+  }
+
 }
