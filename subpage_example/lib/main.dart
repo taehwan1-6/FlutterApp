@@ -39,7 +39,7 @@ class _FirstPage extends State<FirstPage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.of(context).push(MaterialPageRoute(builder: (context) => SecondPage()));
+          Navigator.of(context).pushNamed('/second');
         },
         child: Icon(Icons.add),
       ),
