@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => SubDetail(),
-        '/second': (context) => SecondDetail();
+        '/second': (context) => SecondDetail(),
       },
     );
   }
