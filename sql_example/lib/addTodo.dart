@@ -4,7 +4,7 @@ import 'todo.dart';
 
 class AddTodoApp extends StatefulWidget {
   final Future<Database> db;
-  AddTodoApp(this.db)
+  AddTodoApp(this.db);
 
   @override
   State<StatefulWidget> createState() => _AddTodoApp();
