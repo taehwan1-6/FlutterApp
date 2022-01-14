@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'largeFileMain.dart';
+import 'introPage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,12 +16,15 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(),
+      home: IntroPage(),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
+  MyHomePage({Key? key,required this.title}) : super(key: key);
+  final String title;
+
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }

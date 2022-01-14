@@ -28,7 +28,7 @@ class _IntroPage extends State<IntroPage> {
               logo,
               ElevatedButton(
                 onPressed: () {
-                  Navigator.of(context).pushReplacementNamed(MaterialPageRoute(builder: (context) {
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) {
                     return MyHomePage(title: '');
                   }));
                 },
