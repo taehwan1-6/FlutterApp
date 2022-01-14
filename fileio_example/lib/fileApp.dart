@@ -65,19 +65,31 @@ class _FileApp extends State<FileApp> {
       ),
       body: Container(
         child: Center(
-          child: Text(
-            '$_count',
-            style: TextStyle(fontSize: 40),
+          child: Column(
+            children: <Widget>[
+              TextField(
+                controller: controller,
+                keyboardType: TextInputType.text,
+              ),
+              ListView.builder(
+                itemBuilder: (context, index) {
+                  return Card(
+                    child: Center(
+                      child: Text(
+                        itemList[index],
+                        style: TextStyle(fontSize: 30),
+                      ),
+                    ),
+                  );
+                },
+                itemCount: itemList.length;
+              )
+            ],
           ),
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          setState(() {
-            _count++;
-          });
-          writeCountFile(_count);
-        },
+        onPressed: () {},
         child: Icon(Icons.add),
       ),
     );
