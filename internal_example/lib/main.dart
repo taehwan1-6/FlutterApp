@@ -54,9 +54,16 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  @override
+  void initState() {
+    super.initState();
+    _loadData();
+  }
+
   void _incrementCounter() {
     setState(() {
       _counter++;
+      _setData(_counter);
     });
   }
 
