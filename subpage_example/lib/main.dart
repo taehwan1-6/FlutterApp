@@ -26,6 +26,19 @@ class FirstPage extends StatefulWidget {
 class _FirstPage extends State<FirstPage> {
   @override
   Widget build(BuildContext context) {
-    return null;
+    return Scaffold(
+      appBar: AppBar(
+        title: ('Sub Page Main'),
+      ),
+      body: Container(
+        child: Center(
+          child: Text('첫 번째 페이지'),
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: Icon(Icons.add),
+      ),
+    );
   }
 }
