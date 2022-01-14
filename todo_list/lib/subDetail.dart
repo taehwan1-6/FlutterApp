@@ -40,7 +40,9 @@ class _SubDetail extends State<SubDetail> {
         itemCount: todoList.length,
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          _addNavigation(context);
+        },
         child: Icon(Icons.add),
       ),
     );
