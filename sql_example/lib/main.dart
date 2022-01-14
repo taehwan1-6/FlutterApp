@@ -62,6 +62,9 @@ class _DatabaseApp extends State<DatabaseApp> {
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
           final todo = await Navigator.of(context).pushNamed('/add');
+          if (todo != null) {
+            _insertTodo(todo as Todo);
+          }
         },
         child: Icon(Icons.add),
       ),
