@@ -10,7 +10,23 @@ class FileApp extends StatefulWidget {
 
 class _FileApp extends State<FileApp> {
   int _count = 0;
+  List<String> itemList = new List.empty(growable: true);
+  TextEditingController controller = new TextEditingController();
 
+
+  @override
+  void initState() {
+    super.initState();
+    readCountFile();
+    initData();
+  }
+
+  void initData() async {
+    var result = await readListFile();
+    setState(() {
+      itemList.addAll(result);
+    });
+  }
 
   Future<List<String>> readListFile() async {
     List<String> itemList = new List.empty(growable: true);
@@ -39,12 +55,6 @@ class _FileApp extends State<FileApp> {
       }
       return itemList;
     }
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    readCountFile();
   }
 
   @override
