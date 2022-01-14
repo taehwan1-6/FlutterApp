@@ -28,7 +28,7 @@ class _FirstPage extends State<FirstPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: ('Sub Page Main'),
+        title: Text('Sub Page Main'),
       ),
       body: Container(
         child: Center(
