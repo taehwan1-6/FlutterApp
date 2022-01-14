@@ -42,7 +42,7 @@ class _AddTodoApp extends State<AddTodoApp> {
               Padding(
                 padding: EdgeInsets.all(10),
                 child: TextField(
-                  controller: titleController,
+                  controller: contentController,
                   decoration: InputDecoration(labelText: '할일'),
                 ),
               ),
