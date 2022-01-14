@@ -11,12 +11,19 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Future<Database> database = initDatabase();
+
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: DatabaseApp(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => DatabaseApp(database),
+        '/add': (context) => AddTodoApp(database)
+      },
     );
   }
 
