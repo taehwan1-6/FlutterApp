@@ -42,3 +42,22 @@ class _FirstPage extends State<FirstPage> {
     );
   }
 }
+
+class SecondPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Second Page'),
+      ),
+      body: Container(
+        child: Center(
+          child: ElevatedButton(
+            onPressed: () {},
+            child: Text('돌아가기'),
+          ),
+        ),
+      ),
+    );
+  }
+}
