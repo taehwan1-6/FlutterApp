@@ -91,7 +91,12 @@ class _FileApp extends State<FileApp> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          writeFruit(controller.value.text);
+          setState(() {
+            itemList.add(controller.value.text);
+          });
+        },
         child: Icon(Icons.add),
       ),
     );
