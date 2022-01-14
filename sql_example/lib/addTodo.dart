@@ -11,9 +11,15 @@ class AddTodoApp extends StatefulWidget {
 }
 
 class _AddTodoApp extends State<AddTodoApp> {
+  TextEditingController? titleController;
+  TextEditingController? contentController;
+
+
   @override
   void initState() {
     super.initState();
+    titleController = new TextEditingController();
+    contentController = new TextEditingController();
   }
 
   @override
@@ -25,7 +31,33 @@ class _AddTodoApp extends State<AddTodoApp> {
       body: Container(
         child: Center(
           child: Column(
-            children: <Widget>[],
+            children: <Widget>[
+              Padding(
+                padding: EdgeInsets.all(10),
+                child: TextField(
+                  controller: titleController,
+                  decoration: InputDecoration(labelText: '제목'),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.all(10),
+                child: TextField(
+                  controller: titleController,
+                  decoration: InputDecoration(labelText: '할일'),
+                ),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Todo todo = Todo(
+                    title: titleController!.value.text,
+                    content: contentController!.value.text,
+                    active: 0
+                  );
+                  Navigator.of(context).pop(todo);
+                },
+                child: Text('저장하기'),
+              )
+            ],
           ),
         ),
       ),
