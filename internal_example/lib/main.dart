@@ -48,6 +48,8 @@ class _MyHomePageState extends State<MyHomePage> {
       var value = pref.getInt(key);
       if (value == null) {
         _counter = 0;
+      } else {
+        _counter = value;
       }
     });
   }
