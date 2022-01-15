@@ -216,4 +216,12 @@ class _DatabaseApp extends State<DatabaseApp> {
     });
   }
 
+  void _deleteTodo(Todo todo) async {
+    final Database database = await widget.db;
+    await database.delete('todos', where: 'id = ?', whereArgs: [todo.id]);
+    setState(() {
+      todoList = getTodos();
+    });
+  }
+
 }
