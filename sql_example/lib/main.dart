@@ -53,6 +53,14 @@ class DatabaseApp extends StatefulWidget {
 }
 
 class _DatabaseApp extends State<DatabaseApp> {
+  Future<List<Todo>>? todoList;
+
+
+  @override
+  void initState() {
+    super.initState();
+    todoList = getTodos();
+  }
 
   @override
   Widget build(BuildContext context) {
