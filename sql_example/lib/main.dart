@@ -82,13 +82,22 @@ class _DatabaseApp extends State<DatabaseApp> {
                     return ListView.builder(
                       itemBuilder: (context, index) {
                         Todo todo = (snapshot.data as List<Todo>)[index];
-                        return Card(
-                          child: Column(
-                            children: <Widget>[
-                              Text(todo.title!),
-                              Text(todo.content!),
-                              Text('${todo.active == 1 ? 'true' : 'false'}'),
-                            ],
+                        return ListTile(
+                          title: Text(
+                            todo.title!,
+                            style: TextStyle(fontSize: 20),
+                          ),
+                          subtitle: Container(
+                            child: Column(
+                              children: <Widget>[
+                                Text(todo.content!),
+                                Text('체크 : ${todo.active == 1 ? 'true' : 'false'}'),
+                                Container(
+                                  height: 1,
+                                  color: Colors.blue,
+                                )
+                              ],
+                            ),
                           ),
                         );
                       },
