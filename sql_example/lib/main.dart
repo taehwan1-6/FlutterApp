@@ -120,6 +120,9 @@ class _DatabaseApp extends State<DatabaseApp> {
   void _insertTodo(Todo todo) async {
     final Database database = await widget.db;
     await database.insert('todos', todo.toMap(), conflictAlgorithm: ConflictAlgorithm.replace);
+    setState(() {
+      todoList = getTodos();
+    });
   }
 
   Future<List<Todo>> getTodos() async {
