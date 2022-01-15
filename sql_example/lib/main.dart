@@ -175,4 +175,17 @@ class _DatabaseApp extends State<DatabaseApp> {
     });
   }
 
+  void _updateTodo(Todo todo) async {
+    final Database database = await widget.db;
+    await database.update(
+      'todos',
+      todo.toMap(),
+      where: 'id = ?',
+      whereArgs: [todo.id],
+    );
+    setState(() {
+      todoList = getTodos();
+    });
+  }
+
 }
