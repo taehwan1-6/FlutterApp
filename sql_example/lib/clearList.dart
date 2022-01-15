@@ -11,11 +11,62 @@ class ClearListApp extends StatefulWidget {
 }
 
 class _ClearListApp extends State<ClearListApp> {
+  Future<List<Todo>>? clearList;
+
+  @override
+  void initState() {
+    super.initState();
+    clearList = getClearList();
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('완료한 일'),
+      ),
+      body: Container(
+        child: FutureBuilder(
+          builder: (context, snapshot) {
+            switch (snapshot.connectionState) {
+              case ConnectionState.none:
+                return CircularProgressIndicator();
+              case ConnectionState.waiting:
+                return CircularProgressIndicator();
+              case ConnectionState.active:
+                return CircularProgressIndicator();
+              case ConnectionState.done:
+                if (snapshot.hasData) {
+                  return ListView.builder(
+                    itemBuilder: (context, index) {
+                      Todo todo = (snapshot.data as List<Todo>)[index];
+                      return ListTile(
+                        title: Text(
+                          todo.title!,
+                          style: TextStyle(fontSize: 20),
+                        ),
+                        subtitle: Container(
+                          child: Column(
+                            children: <Widget>[
+                              Text(todo.content!),
+                              Container(
+                                height: 1,
+                                color: Colors.blue,
+                              )
+                            ],
+                          ),
+                        ),
+                      );
+                    },
+                    itemCount: (snapshot.data as List<Todo>).length,
+                  );
+                }
+            }
+            return Text('No data');
+          },
+          future: clearList,
+        ),
       ),
     );
   }
