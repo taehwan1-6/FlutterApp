@@ -71,7 +71,12 @@ class _DatabaseApp extends State<DatabaseApp> {
         title: Text('Database Example'),
         actions: <Widget>[
           TextButton(
-            onPressed: () {},
+            onPressed: () async {
+              await Navigator.of(context).pushNamed('/clear');
+              setState(() {
+                todoList = getTodos();
+              });
+            },
             child: Text('완료한 일', style: TextStyle(color: Colors.white),)),
         ],),
       body: Container(
