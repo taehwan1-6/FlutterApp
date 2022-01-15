@@ -77,4 +77,19 @@ class _DatabaseApp extends State<DatabaseApp> {
     await database.insert('todos', todo.toMap(), conflictAlgorithm: ConflictAlgorithm.replace);
   }
 
+  Future<List<Todo>> getTodos() async {
+    final Database database = await widget.db;
+    final List<Map<String, dynamic>> maps = await database.query('todos');
+
+    return List.generate(maps.length, (i) {
+      int active = maps[i]['active'] == 1 ? 1 : 0;
+      return Todo(
+        title: maps[i]['title'].toString(),
+        content: maps[i]['content'].toString(),
+        active: active,
+        id: maps[i]['id'],
+      );
+    });
+  }
+
 }
