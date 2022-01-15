@@ -66,7 +66,44 @@ class _DatabaseApp extends State<DatabaseApp> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Database Example'),),
-      body: Container(),
+      body: Container(
+        child: Center(
+          child: FutureBuilder(
+            builder: (context, snapshot) {
+              switch (snapshot.connectionState) {
+                case ConnectionState.none:
+                  return CircularProgressIndicator();
+                case ConnectionState.waiting:
+                  return CircularProgressIndicator();
+                case ConnectionState.active:
+                  return CircularProgressIndicator();
+                case ConnectionState.done:
+                  if (snapshot.hasData) {
+                    return ListView.builder(
+                      itemBuilder: (context, index) {
+                        Todo todo = (snapshot.data as List<Todo>)[index];
+                        return Card(
+                          child: Column(
+                            children: <Widget>[
+                              Text(todo.title!),
+                              Text(todo.content!),
+                              Text('${todo.active == 1 ? 'true' : 'false'}'),
+                            ],
+                          ),
+                        );
+                      },
+                      itemCount: (snapshot.data as List<Todo>).length,
+                      );
+                  } else {
+                    return Text('No data');
+                  }
+              }
+              return CircularProgressIndicator();
+            },
+            future: todoList,
+          ),
+        ),
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
           final todo = await Navigator.of(context).pushNamed('/add');
