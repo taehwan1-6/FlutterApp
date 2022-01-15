@@ -99,6 +99,32 @@ class _DatabaseApp extends State<DatabaseApp> {
                               ],
                             ),
                           ),
+                          onTap: () async {
+                            Todo result = await showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: Text('${todo.id} : ${todo.title}'),
+                                  content: Text('Todo를 체크하겠습니까?'),
+                                  actions: <Widget>[
+                                    TextButton(
+                                      onPressed: () {
+                                        setState(() {
+                                          todo.active == 1 ? todo.active = 0 : todo.active = 1;
+                                        });
+                                        Navigator.of(context).pop(todo);
+                                      },
+                                      child: Text('예')),
+                                    TextButton(
+                                      onPressed: () {
+                                        Navigator.of(context).pop(todo);
+                                      },
+                                      child: Text('아니요')),
+                                  ],
+                                );
+                              });
+                            _updateTodo(result);
+                          },
                         );
                       },
                       itemCount: (snapshot.data as List<Todo>).length,
