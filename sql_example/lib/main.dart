@@ -145,9 +145,9 @@ class _DatabaseApp extends State<DatabaseApp> {
                                         child: Text('예')),
                                       TextButton(
                                         onPressed: () {
-                                          Navigator.of(context).pop(todo);
+                                          Navigator.of(context).pop();
                                         },
-                                        child: Text('예')),
+                                        child: Text('아니요')),
                                     ],
                                   );
                                 });
