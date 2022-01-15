@@ -129,6 +129,30 @@ class _DatabaseApp extends State<DatabaseApp> {
                               });
                             _updateTodo(result);
                           },
+
+                          onLongPress: () async {
+                            Todo result = await showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return AlertDialog(
+                                    title: Text('${todo.id} : ${todo.title}'),
+                                    content: Text('${todo.content}를 삭제하시겠습니까?'),
+                                    actions: <Widget>[
+                                      TextButton(
+                                        onPressed: () {
+                                          Navigator.of(context).pop(todo);
+                                        },
+                                        child: Text('예')),
+                                      TextButton(
+                                        onPressed: () {
+                                          Navigator.of(context).pop(todo);
+                                        },
+                                        child: Text('예')),
+                                    ],
+                                  );
+                                });
+                            _deleteTodo(result);
+                          },
                         );
                       },
                       itemCount: (snapshot.data as List<Todo>).length,
