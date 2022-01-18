@@ -17,7 +17,7 @@ class LoginPage extends StatefulWidget {
 class _LoginPage extends State<LoginPage> with SingleTickerProviderStateMixin {
   FirebaseDatabase? _database;
   DatabaseReference? reference;
-  String _databaseURL = 'https://modutour-de965-default-rtdb.firebaseio.com';
+  String _databaseURL = 'https://modutour-de965-default-rtdb.firebaseio.com/';
 
   double opacity = 0;
   AnimationController? _animationController;

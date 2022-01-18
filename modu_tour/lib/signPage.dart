@@ -15,7 +15,7 @@ class SignPage extends StatefulWidget {
 class _SignPage extends State<SignPage> {
   FirebaseDatabase? _database;
   DatabaseReference? reference;
-  String _databaseURL = 'https://modutour-de965-default-rtdb.firebaseio.com';
+  String _databaseURL = 'https://modutour-de965-default-rtdb.firebaseio.com/';
 
   TextEditingController? _idTextController;
   TextEditingController? _pwTextController;
