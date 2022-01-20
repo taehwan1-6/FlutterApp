@@ -28,7 +28,7 @@ class TourData {
       title = data['title'],
       tel = data['tel'],
       zipcode = data['zipcode'],
-      address = data['add1'],
+      address = data['addr1'],
       mapx = data['mapx'],
       mapy = data['mapy'],
       imagePath = data['firstimage'];
