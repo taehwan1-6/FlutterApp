@@ -19,7 +19,7 @@ class TourData {
       this.address,
       this.mapx,
       this.mapy,
-      this.imagePath;
+      this.imagePath,
     }
   );
 

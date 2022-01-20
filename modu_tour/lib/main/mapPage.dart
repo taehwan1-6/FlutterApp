@@ -48,7 +48,7 @@ class _MapPage extends State<MapPage> {
           _scrollController!.position.maxScrollExtent &&
           !_scrollController!.position.outOfRange) {
         page ++;
-        getAreaList(area: area!.value, contentTypeId: kind!.vaule, page: page);
+        getAreaList(area: area!.value, contentTypeId: kind!.value, page: page);
       }
     });
   }
