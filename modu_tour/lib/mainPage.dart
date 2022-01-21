@@ -40,7 +40,10 @@ class _MainPage extends State<MainPage> with SingleTickerProviderStateMixin {
       body: TabBarView(
         children: <Widget>[
           // TabBarView에 채울 위젯들
-          MapPage(),
+          MapPage(
+            databaseReference: reference,
+            id: id,
+          ),
           FavoritePage(),
           SettingPage(),
         ],
