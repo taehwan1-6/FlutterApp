@@ -9,7 +9,7 @@ class DisableInfo {
   String? id;
   String? createTime;
 
-  DisableInfo(this.id, this.disable1, this.disable2);
+  DisableInfo(this.id, this.disable1, this.disable2, this.createTime);
 
   DisableInfo.fromSnapshot(DataSnapshot snapshot)
     :
