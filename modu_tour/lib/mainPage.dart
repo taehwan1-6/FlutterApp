@@ -2,12 +2,16 @@
 
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
+import 'package:sqflite/sqflite.dart';
 import 'main/favoritePage.dart';
 import 'main/settingPage.dart';
 import 'main/mapPage.dart';
 
 
 class MainPage extends StatefulWidget {
+  final Future<Database> database;
+  MainPage(this.database);
+
   @override
   State<StatefulWidget> createState() => _MainPage();
 }
@@ -42,9 +46,14 @@ class _MainPage extends State<MainPage> with SingleTickerProviderStateMixin {
           // TabBarView에 채울 위젯들
           MapPage(
             databaseReference: reference,
+            db: widget.database,
             id: id,
           ),
-          FavoritePage(),
+          FavoritePage(
+            databaseReference: reference,
+            db: widget.database,
+            id: id,
+          ),
           SettingPage(),
         ],
         controller: controller,
