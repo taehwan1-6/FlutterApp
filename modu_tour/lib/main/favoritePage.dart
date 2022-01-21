@@ -18,7 +18,7 @@ class FavoritePage extends StatefulWidget {
 }
 
 class _FavoritePage extends State<FavoritePage> {
-  Future<List<TourData>> _tourList;
+  Future<List<TourData>>? _tourList;
 
 
   @override
@@ -152,8 +152,7 @@ class _FavoritePage extends State<FavoritePage> {
         zipcode: maps[i]['zipcode'].toString(),
         mapy: maps[i]['mapy'].toString(),
         mapx: maps[i]['mapx'].toString(),
-        imagePath: maps[i]['imagePath'].toString();
-      );
+        imagePath: maps[i]['imagePath'].toString(),);
     });
   }
 
